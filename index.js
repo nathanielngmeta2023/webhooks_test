@@ -18,6 +18,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/webhooks', function(req, res) {
+  console.log('21');
+  console.log(req.param('hub.mode'));
   console.log(process.env.VERIFY_TOKEN);
   if (req.param('hub.mode') != 'subscribe'
       || req.param('hub.verify_token') != process.env.VERIFY_TOKEN) {
